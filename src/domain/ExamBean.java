@@ -39,5 +39,10 @@ public class ExamBean {
 	public void setRecordSeq(String recordSeq) {
 		this.recordSeq = recordSeq;
 	}
+	@Override
+	public String toString() {
+		return "시험 정보 [학생 ID = " + memId + ", 시험SEQ = " + examSeq + ", 점수 = " + score + ", 월 = " + month
+				+ ", 과목 SEQ = " + subSeq + ", 성적SEQ =" + recordSeq + "]";
+	}
 	
 }

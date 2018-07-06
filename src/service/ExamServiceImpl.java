@@ -1,6 +1,7 @@
 package service;
 import java.util.List;
 
+import dao.*;
 import domain.*;
 
 public class ExamServiceImpl implements ExamService{
@@ -11,8 +12,28 @@ public class ExamServiceImpl implements ExamService{
 	
 	@Override
 	public void createExam(ExamBean exam) {
-		// TODO Auto-generated method stub
 		
+		System.out.println(exam);
+		// 과목SEQ=null,
+        // 성적표SEQ=null
+		
+		String[] sub = {"JAVA","SQL","R","HTML5","PYTHON"};
+		ExamBean subExam = null;
+		
+		for(int i=0; i<5; i++) {
+			subExam = new ExamBean();
+			subExam.setScore(exam.getScore().split("/")[i]);
+			subExam.setMonth(exam.getMonth());
+			subExam.setSubSeq(SubjectDAOImpl.getInstance().selectSubjectBySubName(sub[i]).get(i).getSubSeq());
+		}
+		
+		//record table insert
+		RecordBean rec = new RecordBean();
+		rec.setAvg("");
+		rec.setGrade("");
+		RecordDAOImpl.getInstance().insertRecord(rec);
+		exam.setRecordSeq(RecordDAOImpl.getInstance().selectFirstRowNum());
+		ExamDAOImpl.getInstance().insertExam(exam);
 	}
 
 	@Override

@@ -51,5 +51,10 @@ public class RecordDAOImpl implements RecordDAO{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public String selectFirstRowNum() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

@@ -11,4 +11,5 @@ public interface RecordDAO {
 	public int recordCount();
 	public void updateRecord(RecordBean record);
 	public void deleteRecord(RecordBean record);
+	public String selectFirstRowNum();
 }

@@ -6,13 +6,12 @@ import domain.ExamBean;
 
 public class ExamDAOImpl implements ExamDAO{
 
-	private static ExamDAO  instance;
-	public static ExamDAO getInstance() {return instance;}
+	private static ExamDAOImpl instance =new ExamDAOImpl();
+	public static ExamDAOImpl getInstance() {return instance;}
 	private ExamDAOImpl() {}
 	
 	@Override
 	public void insertExam(ExamBean exam) {
-		// TODO Auto-generated method stub
 		
 	}
 
